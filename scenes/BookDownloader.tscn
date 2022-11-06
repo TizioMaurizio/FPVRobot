@@ -1,0 +1,102 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://goat/images/reset_rotation_icon.png" type="Texture" id=1]
+[ext_resource path="res://scenes/BookDownloader.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.501961 )
+
+[node name="BookDownloader" type="Panel"]
+margin_right = 400.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 400, 400 )
+rect_clip_content = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 400.0
+margin_bottom = 50.0
+custom_constants/separation = 0
+
+[node name="Refresh" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_right = 400.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 400, 50 )
+text = "Refresh"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+margin_top = 54.0
+margin_right = 400.0
+margin_bottom = 399.0
+rect_min_size = Vector2( 400, 345 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Books" type="GridContainer" parent="VBoxContainer/ScrollContainer"]
+margin_right = 200.0
+margin_bottom = 200.0
+custom_constants/vseparation = 10
+custom_constants/hseparation = 0
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Book" type="Button" parent="VBoxContainer/ScrollContainer/Books"]
+margin_right = 200.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 200, 200 )
+flat = true
+expand_icon = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/Books/Book"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/separation = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ScrollContainer/Books/Book/VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 185.0
+rect_min_size = Vector2( 200, 185 )
+mouse_filter = 2
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/Books/Book/VBoxContainer"]
+margin_top = 186.0
+margin_right = 200.0
+margin_bottom = 200.0
+text = "Book Name"
+align = 1
+autowrap = true
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/ScrollContainer/Books/Book"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 200, 200 )
+custom_styles/bg = SubResource( 1 )
+step = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Refresh" to="." method="_on_Refresh_pressed"]

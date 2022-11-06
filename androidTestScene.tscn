@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Button2.gd" type="Script" id=1]
+[ext_resource path="res://Button1.gd" type="Script" id=2]
+[ext_resource path="res://Button3.gd" type="Script" id=3]
+[ext_resource path="res://download (5) - Copia.png" type="Texture" id=4]
+[ext_resource path="res://Sprite.gd" type="Script" id=5]
+[ext_resource path="res://Button4.gd" type="Script" id=6]
+[ext_resource path="res://scenes/ARVRCamera.gd" type="Script" id=7]
+
+[node name="Control" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 1271.0
+margin_top = 470.0
+margin_right = 1528.0
+margin_bottom = 577.0
+rect_pivot_offset = Vector2( 257, 107 )
+script = ExtResource( 1 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 445.0
+margin_top = 613.0
+margin_right = 702.0
+margin_bottom = 720.0
+rect_pivot_offset = Vector2( 257, 107 )
+script = ExtResource( 2 )
+
+[node name="Button3" type="Button" parent="."]
+margin_left = 350.0
+margin_top = 178.0
+margin_right = 876.0
+margin_bottom = 331.0
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 1053, 579 )
+texture = ExtResource( 4 )
+script = ExtResource( 5 )
+
+[node name="Button4" type="Button" parent="."]
+margin_left = 1302.0
+margin_top = 164.0
+margin_right = 1552.0
+margin_bottom = 264.0
+text = "Image"
+script = ExtResource( 6 )
+
+[node name="ARVROrigin" type="ARVROrigin" parent="."]
+
+[node name="ARVRCamera" type="ARVRCamera" parent="ARVROrigin"]
+current = true
+script = ExtResource( 7 )
